@@ -2,4 +2,9 @@
 <resources>
     <string name="dialogConfirmButtonClicked">Нажата кнопка \'Подтвердить\'</string>
     <string name="dialogDismissButtonClicked">Нажата кнопка \'Отклонить\'</string>
+    <string name="confirm">Подтвердить</string>
+    <string name="dismiss">Отклонить</string>
+    <string name="show_dialog">Показать \'Диалог\'</string>
+    <string name="alert_dialog_title">Заголовок \'Диалога\'</string>
+    <string name="alert_dialog_text">Это текст в \'диалоговом окне\'</string>
 </resources>

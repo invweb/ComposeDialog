@@ -32,12 +32,12 @@ class MainActivity : ComponentActivity() {
 
                     Button(
                         modifier = Modifier.background(color= Color.Yellow)
-                            .size(width = 150.dp, height= 50.dp),
+                            .size(width = 250.dp, height= 50.dp),
                         onClick = {
                             setShowDialog(true)
                         }
                     ) {
-                        Text("Show Dialog")
+                        Text(getString(R.string.show_dialog))
                     }
 
                     DialogDemo(showDialog, setShowDialog)
@@ -52,7 +52,7 @@ class MainActivity : ComponentActivity() {
                 onDismissRequest = {
                 },
                 title = {
-                    Text("Title")
+                    Text(getString(R.string.alert_dialog_title))
                 },
                 confirmButton = {
                     Button(
@@ -67,7 +67,7 @@ class MainActivity : ComponentActivity() {
                             ).show()
                         },
                     ) {
-                        Text("Confirm")
+                        Text(getString(R.string.confirm))
                     }
                 },
                 dismissButton = {
@@ -83,14 +83,13 @@ class MainActivity : ComponentActivity() {
                             ).show()
                         },
                     ) {
-                        Text("Dismiss")
+                        Text(getString(R.string.dismiss))
                     }
                 },
                 text = {
-                    Text("This is a text on the dialog")
+                    Text(getString(R.string.alert_dialog_text))
                 },
             )
         }
     }
-
 }
