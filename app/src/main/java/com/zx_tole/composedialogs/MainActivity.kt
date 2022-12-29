@@ -1,13 +1,11 @@
 package com.zx_tole.composedialogs
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
@@ -28,14 +26,13 @@ class MainActivity : ComponentActivity() {
         setContent {
             ComposeDialogsTheme {
                 Surface(
-                    modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
                     val (showDialog, setShowDialog) =  remember { mutableStateOf(false) }
 
                     Button(
                         modifier = Modifier.background(color= Color.Yellow)
-                            .size(width = 300.dp, height= 200.dp),
+                            .size(width = 150.dp, height= 50.dp),
                         onClick = {
                             setShowDialog(true)
                         }
@@ -48,40 +45,52 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
-}
+    @Composable
+    fun DialogDemo(showDialog: Boolean, setShowDialog: (Boolean) -> Unit) {
+        if (showDialog) {
+            AlertDialog(
+                onDismissRequest = {
+                },
+                title = {
+                    Text("Title")
+                },
+                confirmButton = {
+                    Button(
+                        onClick = {
+                            // Change the state to close the dialog
+                            setShowDialog(false)
 
-@Composable
-fun DialogDemo(showDialog: Boolean, setShowDialog: (Boolean) -> Unit) {
-    if (showDialog) {
-        AlertDialog(
-            onDismissRequest = {
-            },
-            title = {
-                Text("Title")
-            },
-            confirmButton = {
-                Button(
-                    onClick = {
-                        // Change the state to close the dialog
-                        setShowDialog(false)
-                    },
-                ) {
-                    Text("Confirm")
-                }
-            },
-            dismissButton = {
-                Button(
-                    onClick = {
-                        // Change the state to close the dialog
-                        setShowDialog(false)
-                    },
-                ) {
-                    Text("Dismiss")
-                }
-            },
-            text = {
-                Text("This is a text on the dialog")
-            },
-        )
+                            Toast.makeText(
+                                this,
+                                getString(R.string.dialogConfirmButtonClicked),
+                                Toast.LENGTH_LONG
+                            ).show()
+                        },
+                    ) {
+                        Text("Confirm")
+                    }
+                },
+                dismissButton = {
+                    Button(
+                        onClick = {
+                            // Change the state to close the dialog
+                            setShowDialog(false)
+
+                            Toast.makeText(
+                                this,
+                                getString(R.string.dialogDismissButtonClicked),
+                                Toast.LENGTH_LONG
+                            ).show()
+                        },
+                    ) {
+                        Text("Dismiss")
+                    }
+                },
+                text = {
+                    Text("This is a text on the dialog")
+                },
+            )
+        }
     }
+
 }

@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">Compose Dialogs</string>
+    <string name="app_name" translatable="false">Compose Dialogs</string>
+    <string name="dialogConfirmButtonClicked">Dialog \'confirm\' button clicked</string>
+    <string name="dialogDismissButtonClicked">Dialog \'dismiss\' button clicked</string>
 </resources>
